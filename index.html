@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardabarranco Café | Para soñar despierto</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+</head>
+<body>
+
+    
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="Logo.png" alt="Logo Guardabarranco" class="main-logo">
+                <span class="brand-text">Guardabarranco <span>Café</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Menú</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li class="cart-wrapper">
+                    <button id="cart-btn" class="cart-icon">
+                        🛒 <span id="cart-count">0</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Para soñar despierto</h1>
+                <p>Descubre el sabor auténtico de nuestras montañas en cada sorbo.</p>
+                <a href="productos.html" class="btn-filled">Ver Productos</a>
+            </div>
+        </section>
+
+        
+        <section class="container carousel-section">
+            <h2 class="section-title">Recomendaciones del Barista</h2>
+            <div class="carousel-viewport">
+                <div class="carousel-track">
+                    <!-- Producto 1 -->
+                    <div class="carousel-item">
+                        <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1541167760496-1628856ab772?w=300');"></div>
+                        <h3>Latte Guardabarranco</h3>
+                        <p class="price">C$ 95</p>
+                        <button onclick="addToCart('Latte Guardabarranco', 95)" class="btn-add">Agregar</button>
+                    </div>
+                    <!-- Producto 2 -->
+                    <div class="carousel-item">
+                        <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300');"></div>
+                        <h3>Muffin de Pitahaya</h3>
+                        <p class="price">C$ 60</p>
+                        <button onclick="addToCart('Muffin de Pitahaya', 60)" class="btn-add">Agregar</button>
+                    </div>
+                    <!-- Producto 3 -->
+                    <div class="carousel-item">
+                        <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1525351484163-7529414344d8?w=300');"></div>
+                        <h3>Sandwich Quesillo</h3>
+                        <p class="price">C$ 120</p>
+                        <button onclick="addToCart('Sandwich Quesillo', 120)" class="btn-add">Agregar</button>
+                    </div>
+                    <!-- Producto 4 -->
+                    <div class="carousel-item">
+                        <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1559496417-e7f25cb247f3?w=300');"></div>
+                        <h3>Espresso Segoviano</h3>
+                        <p class="price">C$ 55</p>
+                        <button onclick="addToCart('Espresso Segoviano', 55)" class="btn-add">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="container split-section">
+            <div class="column-text">
+                <h2>Nuestra Esencia</h2>
+                <p>En el corazón de nuestra cafetería, el Guardabarranco vuela libre. Seleccionamos granos cultivados bajo sombra para proteger la biodiversidad y garantizarte una taza de café que es puro sueño.</p>
+                <a href="blog.html" class="btn-outline">Leer nuestra historia</a>
+            </div>
+            <div class="column-image">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800" alt="Café de Especialidad">
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL DEL CARRITO DE COMPRAS -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tu Carrito</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div id="cart-items-list">
+                <!-- Se llena con JS -->
+                <p class="empty-msg">Tu carrito está vacío.</p>
+            </div>
+            <div class="modal-footer">
+                <p>Total: <strong>C$ <span id="total-price">0</span></strong></p>
+                <button class="btn-filled" onclick="alert('¡Gracias por soñar con nosotros! Pedido procesado.')">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Guardabarranco Café. "Para soñar despierto".</p>
+            <p>Managua, Nicaragua.</p>
+        </div>
+    </footer>
+
+    <!-- Lógica de Carrito y Carrusel -->
+    <script>
+        // Lógica del Carrito
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            total += price;
+            updateUI();
+        }
+
+        function updateUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const list = document.getElementById('cart-items-list');
+            const totalSpan = document.getElementById('total-price');
+            
+            if (cart.length === 0) {
+                list.innerHTML = '<p class="empty-msg">Tu carrito está vacío.</p>';
+            } else {
+                list.innerHTML = cart.map((item, index) => `
+                    <div class="cart-item">
+                        <span>${item.name}</span>
+                        <span>C$ ${item.price}</span>
+                    </div>
+                `).join('');
+            }
+            totalSpan.innerText = total;
+        }
+
+        
+        const modal = document.getElementById("cart-modal");
+        const btn = document.getElementById("cart-btn");
+        const close = document.getElementsByClassName("close-modal")[0];
+
+        btn.onclick = () => modal.style.display = "block";
+        close.onclick = () => modal.style.display = "none";
+        window.onclick = (event) => {
+            if (event.target == modal) modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

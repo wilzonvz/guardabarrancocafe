@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Completo | Guardabarranco Café</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="Logo.png" alt="Logo" class="main-logo">
+                <span class="brand-text">Guardabarranco <span>Café</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Menú</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li class="cart-wrapper">
+                    <button id="cart-btn" class="cart-icon">
+                        🛒 <span id="cart-count">0</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Nuestro Menú Artesanal</h2>
+
+        <!-- CATEGORÍA: BEBIDAS -->
+        <h3 class="category-subtitle">Bebidas (De la Finca a la Taza)</h3>
+        <div class="product-grid">
+            <!-- Producto 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=400" alt="Latte" class="p-img">
+                <h3>Latte Guardabarranco</h3>
+                <p>C$ 95.00</p>
+                <button onclick="addToCart('Latte Guardabarranco', 95)" class="btn-add">Añadir</button>
+            </div>
+            <!-- Producto 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?w=400" alt="Espresso" class="p-img">
+                <h3>Espresso Segoviano</h3>
+                <p>C$ 55.00</p>
+                <button onclick="addToCart('Espresso Segoviano', 55)" class="btn-add">Añadir</button>
+            </div>
+            <!-- Producto 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400" alt="Cappuccino" class="p-img">
+                <h3>Cappuccino de Montaña</h3>
+                <p>C$ 85.00</p>
+                <button onclick="addToCart('Cappuccino de Montaña', 85)" class="btn-add">Añadir</button>
+            </div>
+            <!-- Producto 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400" alt="Té" class="p-img">
+                <h3>Té Zacate Limón</h3>
+                <p>C$ 45.00</p>
+                <button onclick="addToCart('Té Zacate Limón', 45)" class="btn-add">Añadir</button>
+            </div>
+            <!-- Producto 5 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=400" alt="Frappé" class="p-img">
+                <h3>Frappé de Cacao Pureza</h3>
+                <p>C$ 110.00</p>
+                <button onclick="addToCart('Frappé de Cacao', 110)" class="btn-add">Añadir</button>
+            </div>
+        </div>
+
+        <!-- CATEGORÍA: PASTELES -->
+        <h3 class="category-subtitle">Pastelería "Soñar Despierto"</h3>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400" alt="Muffin" class="p-img">
+                <h3>Muffin de Pitahaya</h3>
+                <p>C$ 60.00</p>
+                <button onclick="addToCart('Muffin de Pitahaya', 60)" class="btn-add">Añadir</button>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=400" alt="Cheesecake" class="p-img">
+                <h3>Cheesecake Maracuyá</h3>
+                <p>C$ 120.00</p>
+                <button onclick="addToCart('Cheesecake Maracuyá', 120)" class="btn-add">Añadir</button>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1464305795204-6f5bdf7f8241?w=400" alt="Torta" class="p-img">
+                <h3>Torta de Elote Tierna</h3>
+                <p>C$ 50.00</p>
+                <button onclick="addToCart('Torta de Elote', 50)" class="btn-add">Añadir</button>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1541696490-8744a5db022b?w=400" alt="Brownie" class="p-img">
+                <h3>Brownie de Cacao 70%</h3>
+                <p>C$ 75.00</p>
+                <button onclick="addToCart('Brownie Cacao', 75)" class="btn-add">Añadir</button>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400" alt="Galletas" class="p-img">
+                <h3>Galletas Avena y Miel</h3>
+                <p>C$ 40.00</p>
+                <button onclick="addToCart('Galletas Avena', 40)" class="btn-add">Añadir</button>
+            </div>
+        </div>
+
+        <!-- CATEGORÍA: SANDWICHES -->
+        <h3 class="category-subtitle">Sandwiches y Salados</h3>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400" alt="Quesillo" class="p-img">
+                <h3>Quesillo Gourmet</h3>
+                <p>C$ 120.00</p>
+                <button onclick="addToCart('Quesillo Gourmet', 120)" class="btn-add">Añadir</button>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1539252554454-31d6263046f9?w=400" alt="Serrano" class="p-img">
+                <h3>Croissant Serrano</h3>
+                <p>C$ 150.00</p>
+                <button onclick="addToCart('Croissant Serrano', 150)" class="btn-add">Añadir</button>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1509722747041-619f38309226?w=400" alt="Veggie" class="p-img">
+                <h3>Panini Vegetales Asados</h3>
+                <p>C$ 130.00</p>
+                <button onclick="addToCart('Panini Veggie', 130)" class="btn-add">Añadir</button>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1567234665766-4740e7939d9a?w=400" alt="Pollo" class="p-img">
+                <h3>Baguette Pollo Pesto</h3>
+                <p>C$ 145.00</p>
+                <button onclick="addToCart('Baguette Pollo', 145)" class="btn-add">Añadir</button>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1619860860774-1e2e17343432?w=400" alt="Lomo" class="p-img">
+                <h3>Ciabatta de Lomo</h3>
+                <p>C$ 160.00</p>
+                <button onclick="addToCart('Ciabatta Lomo', 160)" class="btn-add">Añadir</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- El mismo Modal del Carrito que usamos en el Index -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tu Carrito</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div id="cart-items-list">
+                <p class="empty-msg">Tu carrito está vacío.</p>
+            </div>
+            <div class="modal-footer">
+                <p>Total: <strong>C$ <span id="total-price">0</span></strong></p>
+                <button class="btn-filled">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lógica compartida de carrito
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            total += price;
+            updateUI();
+        }
+
+        function updateUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const list = document.getElementById('cart-items-list');
+            const totalSpan = document.getElementById('total-price');
+            
+            if (cart.length === 0) {
+                list.innerHTML = '<p class="empty-msg">Tu carrito está vacío.</p>';
+            } else {
+                list.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <span>${item.name}</span>
+                        <span>C$ ${item.price}</span>
+                    </div>
+                `).join('');
+            }
+            totalSpan.innerText = total;
+        }
+
+        const modal = document.getElementById("cart-modal");
+        const btn = document.getElementById("cart-btn");
+        const close = document.getElementsByClassName("close-modal")[0];
+        btn.onclick = () => modal.style.display = "block";
+        close.onclick = () => modal.style.display = "none";
+    </script>
+</body>
+</html>
